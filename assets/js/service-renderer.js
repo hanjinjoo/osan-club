@@ -20,11 +20,11 @@ function serviceCard(service){
  const link=active?destination(service.href):null;
  const tag=active?'바로 이용':'개발 예정';
  const content=`<div class="service-card__top"><span class="service-card__icon service-card__icon--${escapeText(service.tone)}">${icon(service.icon)}</span><span class="service-card__status ${active?'':'service-card__status--planned'}">${tag}</span></div><div class="service-card__content"><small>${escapeText(service.category)}</small><h3>${escapeText(service.title)}</h3><p>${escapeText(service.description)}</p></div><div class="service-card__bottom"><span>${escapeText(service.cta)}</span><span class="service-card__arrow" aria-hidden="true">${active?'↗':'·'}</span></div>`;
- return active?`<a class="service-card" href="${escapeText(link)}">${content}</a>`:`<article class="service-card service-card--planned" aria-label="${escapeText(service.title)} · 개발 예정">${content}</article>`;
+ return active?`<a class="service-card" href="${escapeText(link)}" target="_blank" rel="noopener noreferrer">${content}</a>`:`<article class="service-card service-card--planned" aria-label="${escapeText(service.title)} · 개발 예정">${content}</article>`;
 }
 function noticeRow(notice){
  const link=destination(notice.href);
- return `<a class="notice-row" href="${escapeText(link)}"><span class="notice-row__tag notice-row__tag--${escapeText(notice.tone)}">${escapeText(notice.tag)}</span><div class="notice-row__info"><strong>${escapeText(notice.title)}</strong><p>${escapeText(notice.description)}</p></div><span class="notice-row__arrow" aria-hidden="true">↗</span></a>`;
+ return `<a class="notice-row" href="${escapeText(link)}" target="_blank" rel="noopener noreferrer"><span class="notice-row__tag notice-row__tag--${escapeText(notice.tone)}">${escapeText(notice.tag)}</span><div class="notice-row__info"><strong>${escapeText(notice.title)}</strong><p>${escapeText(notice.description)}</p></div><span class="notice-row__arrow" aria-hidden="true">↗</span></a>`;
 }
 export function renderServices(){
  const servicesRoot=document.getElementById('services-grid');

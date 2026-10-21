@@ -15,11 +15,11 @@ test('서비스 목록은 한 곳에서 관리되고 ID가 중복되지 않는�
 });
 test('운영 중인 세 서비스 URL과 경로는 기존 사이트를 정확하게 참조한다',()=>{
  const paths=SERVICES.filter(s=>s.status==='active').map(s=>new URL(s.href).pathname);
- assert.deepEqual(paths,['/osan/','/osan/','/osan-monitoring-2026/']);
- assert.equal(new URL(SERVICES[0].href).hash,'#downloads');
- assert.equal(new URL(SERVICES[1].href).hash,'#rules');
+ assert.deepEqual(paths,['/osan/','/osan/rules/','/osan-monitoring-2026/']);
+ assert.equal(new URL(SERVICES[0].href).hash,'');
+ assert.equal(new URL(SERVICES[1].href).pathname,'/osan/rules/');
 });
-test('공지 링크는 모두 신뢰된 기존 운영 사이트를 참조한다',()=>{
+test('공지 링크는 모두 신뢰된 운영 사이트를 참조한다',()=>{
  assert.equal(NOTICES.length,3);
  for(const item of NOTICES){const url=new URL(item.href);assert.equal(url.protocol,'https:');assert.equal(url.hostname,'hanjinjoo.github.io')}
 });
@@ -46,4 +46,15 @@ test('자료실과 통합된 브랜드 디자인 토큰·서체·섹션 구성�
  assert.ok(tokens.includes('Noto Sans KR'));
  for(const item of ['Club<br>Portal','Services','How to Use','Notice'])assert.ok(html.includes(item),item);
  assert.ok(layout.includes('.site-header.is-solid'));
+});
+
+test('각 독립 업무 페이지는 새 탭에서 안전하게 열린다',()=>{
+ const renderer=read('assets/js/service-renderer.js');const html=read('index.html');
+ assert.ok(renderer.includes('target="_blank" rel="noopener noreferrer"'));
+ assert.ok(html.includes('https://hanjinjoo.github.io/osan/rules/'));
+ assert.ok(!html.includes('https://hanjinjoo.github.io/osan/#rules'));
+ assert.ok(!html.includes('https://hanjinjoo.github.io/osan/#downloads'));
+ for(const match of html.matchAll(/<a[^>]*href="https:\/\/hanjinjoo\.github\.io\/[^"]+"[^>]*>/g)){
+  assert.match(match[0],/target="_blank"/);assert.match(match[0],/rel="noopener noreferrer"/);
+ }
 });
