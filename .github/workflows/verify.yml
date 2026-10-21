@@ -1,0 +1,25 @@
+name: Verify club portal
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JavaScript syntax checks
+        run: |
+          node --check assets/js/main.js
+          node --check assets/js/navigation.js
+          node --check assets/js/service-renderer.js
+          node --check data/services.js
+          node --check data/notices.js
+      - name: Service and site tests
+        run: npm test

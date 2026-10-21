@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#003876">
+  <meta name="description" content="오산대학교 동아리 통합 포털. 서류·정산 양식, 지원금 사용 규정, 동아리 모니터링 예약을 한곳에서 이용하세요.">
+  <meta property="og:title" content="오산대학교 동아리 통합 포털">
+  <meta property="og:description" content="동아리 활동의 시작부터 마무리까지. 필요한 자료와 행정 서비스를 한곳에서.">
+  <meta property="og:type" content="website">
+  <title>오산대학교 동아리 통합 포털</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/tokens.css">
+  <link rel="stylesheet" href="./assets/css/base.css">
+  <link rel="stylesheet" href="./assets/css/layout.css">
+  <link rel="stylesheet" href="./assets/css/components.css">
+  <script type="module" src="./assets/js/main.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="brand" href="./" aria-label="오산대학교 동아리 통합 포털 홈">
+      <strong>오산대학교</strong><span>OSAN UNIVERSITY · CLUB PORTAL</span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="메뉴 열기">
+      <span class="nav-toggle__line"></span><span class="nav-toggle__line"></span><span class="nav-toggle__line"></span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="주요 메뉴">
+      <a href="#services" class="primary-nav__link">주요 서비스</a>
+      <a href="#guide" class="primary-nav__link">이용 안내</a>
+      <a href="#notices" class="primary-nav__link">공지사항</a>
+      <a href="#contact" class="primary-nav__link">문의</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content">
+  <section class="hero" aria-labelledby="hero-title">
+    <svg class="hero-art" viewBox="0 0 760 760" fill="none" aria-hidden="true">
+      <g stroke="#ffffff" stroke-opacity=".27" stroke-width="1.2">
+        <circle cx="380" cy="380" r="120"/>
+        <circle cx="380" cy="380" r="200"/>
+        <circle cx="380" cy="380" r="280"/>
+        <circle cx="380" cy="380" r="360"/>
+      </g>
+      <path d="M380 20 A360 360 0 0 1 740 380" stroke="#ffffff" stroke-opacity=".8" stroke-width="2"/>
+    </svg>
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="hero__term">2026학년도 2학기 · 동아리 종합 안내</p>
+        <p class="hero__english" aria-hidden="true">Club<br>Portal</p>
+        <h1 id="hero-title">동아리 활동의 시작부터 마무리까지</h1>
+        <p class="hero__description">서류 준비부터 지원금 사용 규정, 모니터링 일정 예약까지.<br class="desktop-break">동아리 활동에 필요한 서비스를 한곳에서 확인하세요.</p>
+        <div class="hero__actions">
+          <a class="hero__text-link" href="#services">주요 서비스 살펴보기 <span aria-hidden="true">→</span></a>
+          <a class="hero__outline-link" href="https://hanjinjoo.github.io/osan-monitoring-2026/">모니터링 일정 예약 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="quick-status" aria-label="2026학년도 2학기 모니터링 일정">
+    <div class="container quick-status__inner">
+      <div class="quick-status__cell"><span class="quick-status__label">학기 안내</span><strong>2026학년도 2학기</strong></div>
+      <div class="quick-status__cell"><span class="quick-status__label">모니터링 운영 기간</span><strong>10. 26.(월) ~ 11. 27.(금)</strong></div>
+      <a class="quick-status__link" href="https://hanjinjoo.github.io/osan-monitoring-2026/">일정 예약하기 <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+  <section class="services-section section-space" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-kicker" aria-hidden="true">Services</p>
+        <h2 id="services-title">필요한 업무를 선택하세요</h2>
+        <p>동아리 활동에 필요한 서비스로 바로 이동할 수 있습니다.</p>
+      </div>
+      <div id="services-grid" class="services-grid" aria-live="polite"></div>
+      <noscript><p class="no-script">서비스 바로가기: <a href="https://hanjinjoo.github.io/osan/#downloads">서류·정산 양식</a> · <a href="https://hanjinjoo.github.io/osan/#rules">지원금 사용 규정</a> · <a href="https://hanjinjoo.github.io/osan-monitoring-2026/">모니터링 일정 예약</a></p></noscript>
+    </div>
+  </section>
+  <section class="guide-section section-space" id="guide" aria-labelledby="guide-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-kicker" aria-hidden="true">How to Use</p>
+        <h2 id="guide-title">처음이라면, 이 순서대로</h2>
+        <p>처음 정산 업무를 맡은 학생을 위한 기본 이용 안내입니다.</p>
+      </div>
+      <ol class="guide-steps">
+        <li><span class="guide-steps__number">01</span><div><h3>지원금 사용 기준 확인</h3><p>사용 가능한 항목과 법인카드 사전 승인 조건을 먼저 확인합니다.</p></div></li>
+        <li><span class="guide-steps__number">02</span><div><h3>필요한 양식 준비</h3><p>전공·취업동아리 유형과 지출 내용에 맞는 공식 양식을 내려받습니다.</p></div></li>
+        <li><span class="guide-steps__number">03</span><div><h3>증빙 및 정산 서류 제출</h3><p>활동 내용과 영수증 등을 확인한 뒤 공식 안내에 따라 제출합니다.</p></div></li>
+      </ol>
+      <div class="guide-more"><div><strong>더 자세한 내용을 알고 싶다면?</strong><p>지원금 사용 규정과 간담회 자료에서 상세 기준을 확인하세요.</p></div><a href="https://hanjinjoo.github.io/osan/#rules">지원금 사용 규정 보러 가기 <span aria-hidden="true">↗</span></a></div>
+    </div>
+  </section>
+  <section class="notices-section section-space" id="notices" aria-labelledby="notices-title">
+    <div class="container">
+      <div class="section-header"><p class="section-kicker" aria-hidden="true">Notice</p><h2 id="notices-title">지금 확인할 안내</h2><p>현재 학기에 알아두어야 할 주요 내용입니다.</p></div>
+      <div class="notice-list" id="notice-list"></div>
+    </div>
+  </section>
+  <section class="banner-section" aria-label="동아리 자료실 바로가기">
+    <div class="container"><div class="support-banner">
+      <div><p class="support-banner__label" aria-hidden="true">Club Resources</p><h2>필요한 서류와 안내를<br>바로 확인하세요.</h2><p>공식 정산 서식과 동아리 운영 관련 자료는 기존 자료실에서 확인할 수 있습니다.</p></div>
+      <a class="banner-button" href="https://hanjinjoo.github.io/osan/">동아리 자료실 바로가기 <span aria-hidden="true">↗</span></a>
+    </div></div>
+  </section>
+</main>
+<footer class="site-footer" id="contact">
+  <div class="container footer-main">
+    <div><a class="footer-brand" href="./"><strong>오산대학교</strong><span>OSAN UNIVERSITY · CLUB PORTAL</span></a><p>동아리 활동에 필요한 업무와 자료를 한곳에 모았습니다.</p></div>
+    <div class="footer-contact"><span>운영 및 문의</span><strong>오산대학교 학생취업처</strong><a href="tel:0313702877">031-370-2877 <span aria-hidden="true">↗</span></a><small>세부 행정 기준은 공식 안내와 담당자 확인을 우선해 주세요.</small></div>
+  </div>
+  <div class="container footer-bottom"><span>2026학년도 2학기 · 오산대학교 학생취업처</span><a href="#top">맨 위로 <span aria-hidden="true">↑</span></a></div>
+</footer>
+</body>
+</html>

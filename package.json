@@ -1,0 +1,8 @@
+{
+  "name":"osan-club-portal",
+  "private":true,
+  "version":"1.0.0",
+  "type":"module",
+  "scripts":{"dev":"python3 -m http.server 5173","test":"node --test tests/*.test.mjs"},
+  "description":"오산대학교 동아리 통합 포털 — 독립 정적 웹사이트"
+}

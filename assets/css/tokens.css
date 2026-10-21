@@ -1,0 +1,17 @@
+/* 기준: 현재 운영 중인 오산대학교 자료실의 색상·타이포그래피 시스템 */
+:root{
+  color-scheme:light;
+  --navy:#003876;
+  --navy-deep:#00234d;
+  --bg:#fff;
+  --tint:#f2f5fa;
+  --text:#17202e;
+  --muted:#56627a;
+  --line:#d8dfea;
+  --accent:#003876;
+  --on-navy:#fff;
+  --on-navy-muted:rgba(255,255,255,.72);
+  --sans:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;
+  --serif:'Playfair Display','Noto Serif KR',Georgia,serif;
+  --container:1200px;
+}
