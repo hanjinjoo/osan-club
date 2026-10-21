@@ -8,14 +8,14 @@ import {NOTICES} from '../data/notices.js';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=name=>fs.readFileSync(path.join(root,name),'utf8');
 test('서비스 목록은 한 곳에서 관리되고 ID가 중복되지 않는다',()=>{
- assert.equal(SERVICES.length,4);
+ assert.equal(SERVICES.length,5);
  assert.equal(new Set(SERVICES.map(s=>s.id)).size,SERVICES.length);
- assert.deepEqual(SERVICES.filter(s=>s.status==='active').map(s=>s.id),['documents','rules','monitoring']);
+ assert.deepEqual(SERVICES.filter(s=>s.status==='active').map(s=>s.id),['documents','rules','monitoring','faq']);
  assert.equal(SERVICES.find(s=>s.id==='settlement-lab').href,null);
 });
-test('운영 중인 세 서비스 URL과 경로는 기존 사이트를 정확하게 참조한다',()=>{
+test('운영 중인 서비스 URL과 경로는 각 독립 사이트를 정확하게 참조한다',()=>{
  const paths=SERVICES.filter(s=>s.status==='active').map(s=>new URL(s.href).pathname);
- assert.deepEqual(paths,['/osan/','/osan/rules/','/osan-monitoring-2026/']);
+ assert.deepEqual(paths,['/osan/','/osan/rules/','/osan-monitoring-2026/','/osan-club-faq/']);
  assert.equal(new URL(SERVICES[0].href).hash,'');
  assert.equal(new URL(SERVICES[1].href).pathname,'/osan/rules/');
 });
@@ -57,4 +57,16 @@ test('각 독립 업무 페이지는 새 탭에서 안전하게 열린다',()=>{
  for(const match of html.matchAll(/<a[^>]*href="https:\/\/hanjinjoo\.github\.io\/[^"]+"[^>]*>/g)){
   assert.match(match[0],/target="_blank"/);assert.match(match[0],/rel="noopener noreferrer"/);
  }
+});
+
+test('FAQ 카드 및 상단 메뉴는 공개 FAQ URL을 새 탭으로 연다',()=>{
+ const faq=SERVICES.find(service=>service.id==='faq');
+ assert.ok(faq);
+ assert.equal(faq.status,'active');
+ assert.equal(faq.href,'https://hanjinjoo.github.io/osan-club-faq/');
+ assert.equal(faq.title,'자주 묻는 질문');
+ const html=read('index.html');
+ assert.ok(html.includes('href="https://hanjinjoo.github.io/osan-club-faq/" class="primary-nav__link" target="_blank" rel="noopener noreferrer"'));
+ assert.ok(html.includes('href="https://hanjinjoo.github.io/osan-club-faq/" target="_blank" rel="noopener noreferrer">자주 묻는 질문'));
+ assert.ok(read('assets/js/service-renderer.js').includes('  faq:'));
 });
