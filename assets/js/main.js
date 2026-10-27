@@ -1,5 +1,5 @@
 import {initNavigation} from './navigation.js';
-import {renderServices} from './service-renderer.js';
+import {renderServices} from './service-renderer.js?v=20261027-showcase';
 
 function boot(){
   renderServices();
