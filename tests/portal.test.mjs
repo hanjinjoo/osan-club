@@ -24,7 +24,7 @@ test('공지 링크는 모두 신뢰된 운영 사이트를 참조한다',()=>{
   for(const item of NOTICES){
     const url=new URL(item.href);
     assert.equal(url.protocol,'https:');
-    if(item.id==='n4'){
+    if(item.id==='n2'){
       assert.equal(url.hostname,'osan-showcase-2026.jspsil092045.workers.dev');
     }else{
       assert.equal(url.hostname,'hanjinjoo.github.io');
