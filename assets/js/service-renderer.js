@@ -1,4 +1,4 @@
-import {SERVICES} from '../../data/services.js';
+import {SERVICES} from '../../data/services.js?v=20261027-showcase';
 import {NOTICES} from '../../data/notices.js';
 
 const ICONS = Object.freeze({

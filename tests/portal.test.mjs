@@ -29,7 +29,7 @@ test('기본 화면 구성과 접근성 요소',()=>{
 });
 test('HTML에서 호출하는 모든 로컬 CSS·JavaScript 파일이 존재한다',()=>{
  const html=read('index.html');
- for(const [,ref] of html.matchAll(/(?:src|href)="(\.\/assets\/[^\"]+)"/g))assert.ok(fs.existsSync(path.join(root,ref)),ref);
+ for(const [,ref] of html.matchAll(/(?:src|href)="(\.\/assets\/[^\"]+)"/g))assert.ok(fs.existsSync(path.join(root,ref.split('?')[0])),ref);
 });
 test('메인 및 코드 구조는 기존 자료실 파일이나 Supabase 프로젝트에 의존하지 않는다',()=>{
  assert.equal(fs.existsSync(path.join(root,'supabase')),false);
