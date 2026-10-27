@@ -10,10 +10,11 @@ const ICONS = Object.freeze({
 });
 const icon=name=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" aria-hidden="true">${ICONS[name]||ICONS.documents}</svg>`;
 const escapeText=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function destination(href){
+export function destination(href){
   if(!href)return null;
   const url=new URL(href);
-  if(url.protocol!=='https:'||url.hostname!=='hanjinjoo.github.io')throw new Error('승인되지 않은 서비스 URL입니다.');
+  const approved=url.origin==='https://hanjinjoo.github.io'||(url.origin==='https://osan-showcase-2026.jspsil092045.workers.dev'&&url.pathname==='/'&&!url.search&&!url.hash);
+  if(url.protocol!=='https:'||url.username||url.password||!approved)throw new Error('승인되지 않은 서비스 URL입니다.');
   return url.href;
 }
 function serviceCard(service){

@@ -59,7 +59,7 @@ npm test
 
 `data/services.js`에 `SERVICES` 항목을 추가합니다. 미완성 서비스라면 `status:'planned'` 및 `href:null`로 설정하세요. 운영 개시 전 기존 배포 URL을 확인해 `status:'active'`와 `href`를 지정해야 합니다.
 
-> `service-renderer.js`의 안전 URL 허용 규칙은 현재 `hanjinjoo.github.io`만 허용합니다. 나중에 다른 도메인의 공식 서비스가 연결되면 검토 후 변경하세요.
+> `service-renderer.js`의 안전 URL 허용 규칙은 `hanjinjoo.github.io`와 성과공유회 운영 학생 페이지의 정확한 출처·루트 경로만 허용합니다. 다른 Workers 호스트와 관리자 경로는 허용하지 않습니다.
 
 ## 기존 시스템 보존
 
@@ -88,3 +88,9 @@ npm test
 - JavaScript 미지원 환경에서도 `noscript` 바로가기 제공.
 - FAQ 관리자 기능은 FAQ 전용 저장소·Supabase에서 별도 관리; 통합 포털에는 인증정보를 저장하지 않음.
 - 기존 모니터링 예약 및 자료실 저장소는 변경하지 않음.
+
+## 성과공유회 연결 (2026-10-27)
+
+- 서비스 카드, 상단·모바일 메뉴, JavaScript 미지원 바로가기에 운영 학생 페이지 연결: https://osan-showcase-2026.jspsil092045.workers.dev/
+- 제출 마감 안내: 2026년 11월 20일. 서버 자동 마감 여부와는 별도입니다.
+- 관리자 주소·비밀값·테스트 서버는 포털에 연결하지 않습니다.
