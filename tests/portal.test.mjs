@@ -20,8 +20,16 @@ test('운영 중인 서비스 URL과 경로는 각 독립 사이트를 정확하
  assert.equal(new URL(SERVICES[1].href).pathname,'/osan/rules/');
 });
 test('공지 링크는 모두 신뢰된 운영 사이트를 참조한다',()=>{
- assert.equal(NOTICES.length,4);
- for(const item of NOTICES){const url=new URL(item.href);assert.equal(url.protocol,'https:');assert.equal(url.hostname,'hanjinjoo.github.io')}
+  assert.equal(NOTICES.length,4);
+  for(const item of NOTICES){
+    const url=new URL(item.href);
+    assert.equal(url.protocol,'https:');
+    if(item.id==='n4'){
+      assert.equal(url.hostname,'osan-showcase-2026.jspsil092045.workers.dev');
+    }else{
+      assert.equal(url.hostname,'hanjinjoo.github.io');
+    }
+  }
 });
 test('기본 화면 구성과 접근성 요소',()=>{
  const html=read('index.html');
