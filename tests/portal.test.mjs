@@ -15,7 +15,7 @@ test('서비스 목록은 한 곳에서 관리되고 ID가 중복되지 않는�
 });
 test('운영 중인 서비스 URL과 경로는 각 독립 사이트를 정확하게 참조한다',()=>{
  const paths=SERVICES.filter(s=>s.status==='active').map(s=>new URL(s.href).pathname);
- assert.deepEqual(paths,['/osan/','/osan/rules/','/osan-monitoring-2026/','/osan-club-faq/','/']);
+ assert.deepEqual(paths,['/osan/','/osan/rules/','/osan-monitoring-2026/','/osan-club-faq/','/osan-club/showcase/']);
  assert.equal(new URL(SERVICES[0].href).hash,'');
  assert.equal(new URL(SERVICES[1].href).pathname,'/osan/rules/');
 });
@@ -25,7 +25,7 @@ test('공지 링크는 모두 신뢰된 운영 사이트를 참조한다',()=>{
     const url=new URL(item.href);
     assert.equal(url.protocol,'https:');
     if(item.id==='n2'){
-      assert.equal(url.hostname,'osan-showcase-2026.jspsil092045.workers.dev');
+      assert.equal(url.hostname,'hanjinjoo.github.io');
     }else{
       assert.equal(url.hostname,'hanjinjoo.github.io');
     }
@@ -80,10 +80,10 @@ test('FAQ 카드 및 상단 메뉴는 공개 FAQ URL을 새 탭으로 연다',()
 });
 
 import {destination} from '../assets/js/service-renderer.js';
-test('성과공유회는 운영 학생 페이지에만 연결한다',()=>{
- const url='https://osan-showcase-2026.jspsil092045.workers.dev/';
+test('성과공유회는 행사 메인 페이지에 연결한다',()=>{
+ const url='https://hanjinjoo.github.io/osan-club/showcase/';
  assert.equal(SERVICES.find(s=>s.id==='showcase').href,url);
  assert.equal(destination(url),url);
- for(const bad of [url+'showcase-admin',url+'?redirect=1','https://evil.workers.dev/','https://osan-showcase-2026.jspsil092045.workers.dev.evil.test/'])assert.throws(()=>destination(bad));
+ for(const bad of ['https://osan-showcase-2026.jspsil092045.workers.dev/showcase-admin','https://osan-showcase-2026.jspsil092045.workers.dev/?redirect=1','https://evil.workers.dev/','https://osan-showcase-2026.jspsil092045.workers.dev.evil.test/'])assert.throws(()=>destination(bad));
  assert.ok(read('index.html').includes('href="'+url+'" class="primary-nav__link" target="_blank" rel="noopener noreferrer"'));
 });
