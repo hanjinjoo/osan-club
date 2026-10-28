@@ -1,5 +1,5 @@
-import {SERVICES} from '../../data/services.js?v=20261027-showcase';
-import {NOTICES} from '../../data/notices.js';
+import {SERVICES} from '../../data/services.js?v=20261028-showcase-home';
+import {NOTICES} from '../../data/notices.js?v=20261028-showcase-home';
 
 const ICONS = Object.freeze({
   documents:'<rect x="4" y="3" width="11" height="15" rx="2"/><path d="M8 7h3M8 11h3M16 8h4a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-1M13 15h4"/>',
